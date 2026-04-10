@@ -1,5 +1,6 @@
 "use client";
 
+import { MenuItem } from "@headlessui/react";
 import { ChevronDownIcon, GlobeIcon } from "@/components/icons";
 import { HeaderDropdown } from "@/components/ui/header-dropdown";
 import { useLanguage } from "@/hooks/language";
@@ -36,21 +37,22 @@ export function LanguageSwitch() {
       </div>
       <div className="flex flex-col py-1.5 gap-0.5">
         {availableLocales.map((value) => (
-          <button
-            key={value}
-            type="button"
-            onClick={() => setLocale(value)}
-            className={`cursor-pointer rounded-xl px-3 py-2 text-left text-sm transition ${
-              locale === value
-                ? "bg-slate-100 font-medium text-slate-900"
-                : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-            }`}
-          >
-            <span className="font-medium">{value.toUpperCase()}</span>
-            <span className="ml-2 text-slate-400">
-              {language.options[value]}
-            </span>
-          </button>
+          <MenuItem key={value}>
+            <button
+              type="button"
+              onClick={() => setLocale(value)}
+              className={`cursor-pointer w-full rounded-xl px-3 py-2 text-left text-sm transition ${
+                locale === value
+                  ? "bg-slate-100 font-medium text-slate-900"
+                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+              }`}
+            >
+              <span className="font-medium">{value.toUpperCase()}</span>
+              <span className="ml-2 text-slate-400">
+                {language.options[value]}
+              </span>
+            </button>
+          </MenuItem>
         ))}
       </div>
     </HeaderDropdown>

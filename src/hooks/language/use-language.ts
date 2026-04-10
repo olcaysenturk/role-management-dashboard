@@ -11,6 +11,9 @@ export function useLanguage() {
   return {
     locale,
     messages: messages[locale],
-    setLocale: (nextLocale: Locale) => dispatch(setLocale(nextLocale)),
+    setLocale: (nextLocale: Locale) => {
+      dispatch(setLocale(nextLocale));
+      document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; SameSite=Lax`;
+    },
   };
 }

@@ -110,13 +110,15 @@ export function UserFormModal({ isOpen, onClose, onSubmit, user }: UserFormModal
       isOpen={isOpen}
       onClose={onClose}
       title={isEditMode ? t.edit_role : t.add_user}
+      closeAriaLabel={t.cancel}
     >
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1.5">{t.first_name}</label>
+              <label htmlFor="firstName" className="block text-sm font-semibold text-slate-700 mb-1.5">{t.first_name}</label>
               <Input
+                id="firstName"
                 value={firstName}
                 onChange={(e) => {
                   setFirstName(e.target.value);
@@ -128,8 +130,9 @@ export function UserFormModal({ isOpen, onClose, onSubmit, user }: UserFormModal
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1.5">{t.last_name}</label>
+              <label htmlFor="lastName" className="block text-sm font-semibold text-slate-700 mb-1.5">{t.last_name}</label>
               <Input
+                id="lastName"
                 value={lastName}
                 onChange={(e) => {
                   setLastName(e.target.value);
@@ -149,6 +152,7 @@ export function UserFormModal({ isOpen, onClose, onSubmit, user }: UserFormModal
               onChange={handleRoleChange}
               options={roleOptions}
               placeholder={t.select_role}
+              ariaLabel={t.role}
             />
           </div>
 
@@ -161,12 +165,14 @@ export function UserFormModal({ isOpen, onClose, onSubmit, user }: UserFormModal
               {ALL_PERMISSIONS.map((perm) => (
                 <label
                   key={perm}
+                  htmlFor={`perm-${perm}`}
                   className={`flex items-center gap-2.5 p-2 rounded-lg cursor-pointer transition-all border ${permissions.includes(perm)
                       ? "bg-white border-blue-100 shadow-sm"
                       : "border-transparent opacity-60 hover:opacity-100"
                     }`}
                 >
                   <input
+                    id={`perm-${perm}`}
                     type="checkbox"
                     checked={permissions.includes(perm)}
                     onChange={() => togglePermission(perm)}

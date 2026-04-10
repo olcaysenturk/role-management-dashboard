@@ -28,6 +28,8 @@ export function UserFilters({
           <SearchIcon className="h-4 w-4 text-slate-400" />
         </div>
         <Input
+          id="search-users"
+          aria-label={t.search_placeholder}
           className="pl-9 w-full"
           placeholder={t.search_placeholder}
           value={searchTerm}
@@ -39,6 +41,7 @@ export function UserFilters({
           value={roleFilter}
           onChange={onRoleFilterChange}
           options={roleFilterOptions}
+          ariaLabel={t.roles.all || "Rol filtresi"}
         />
       </div>
       <Button onClick={onAdd} className="w-full sm:w-auto shrink-0">

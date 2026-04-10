@@ -1,16 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MainSection, Button } from "@/components/ui";
-import { useLanguage } from "@/hooks/language";
+import { useLanguage } from "@/hooks/language/use-language";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { User, Role } from "@/types/user";
 import { addUser, deleteUser, updateUser, fetchUsers } from "@/store/users";
 import { UserFilters, UserTable, UserFormModal, DeleteConfirmModal } from "@/components/users";
-import { Pagination } from "@/components/ui";
+import { Pagination, PageHeader } from "@/components/ui";
 import { toast } from "sonner";
 
-export default function Home() {
+export function UserManagement() {
   const { messages } = useLanguage();
   const dispatch = useAppDispatch();
   const users = useAppSelector((state) => state.users.users);
@@ -110,54 +109,48 @@ export default function Home() {
   };
 
   return (
-    <MainSection>
-      <div className="max-w-6xl w-full mx-auto">
-        <div className="mb-8">
-          <h1 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
-            {messages.home.title || "User Role Management"}
-          </h1>
-        </div>
+    <div className="max-w-6xl w-full mx-auto">
+      <PageHeader title={messages.home.title || "User Role Management"} />
 
-        <UserFilters
-          searchTerm={searchTerm}
-          onSearchChange={handleSearchChange}
-          roleFilter={roleFilter}
-          onRoleFilterChange={handleRoleFilterChange}
-          onAdd={openAddModal}
+      <UserFilters
+        searchTerm={searchTerm}
+        onSearchChange={handleSearchChange}
+        roleFilter={roleFilter}
+        onRoleFilterChange={handleRoleFilterChange}
+        onAdd={openAddModal}
+      />
+
+      <div className="flex flex-col gap-6">
+        <UserTable
+          users={paginatedUsers}
+          isLoading={isLoading}
+          onEdit={handleEdit}
+          onDelete={(id: string) => {
+            const user = users.find((u) => u.id === id);
+            if (user) handleDelete(user);
+          }}
         />
 
-        <div className="flex flex-col gap-6">
-          <UserTable
-            users={paginatedUsers}
-            isLoading={isLoading}
-            onEdit={handleEdit}
-            onDelete={(id: string) => {
-              const user = users.find((u) => u.id === id);
-              if (user) handleDelete(user);
-            }}
-          />
-
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={setCurrentPage}
-          />
-        </div>
-
-        <UserFormModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          onSubmit={handleFormSubmit}
-          user={editingUser}
-        />
-
-        <DeleteConfirmModal
-          isOpen={isDeleteModalOpen}
-          onClose={() => setIsDeleteModalOpen(false)}
-          onConfirm={handleConfirmDelete}
-          userName={userToDelete?.name || ""}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
         />
       </div>
-    </MainSection>
+
+      <UserFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleFormSubmit}
+        user={editingUser}
+      />
+
+      <DeleteConfirmModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={handleConfirmDelete}
+        userName={userToDelete?.name || ""}
+      />
+    </div>
   );
 }

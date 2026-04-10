@@ -4,7 +4,7 @@ import { CheckIcon, ChevronDownIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { SelectProps } from "@/types/ui";
 
-export function Select({ value, onChange, options, placeholder = "Select...", className }: SelectProps) {
+export function Select({ value, onChange, options, placeholder = "Select...", className, ariaLabel }: SelectProps) {
   const selectedOption = options.find((opt) => opt.value === value);
 
   return (
@@ -13,6 +13,7 @@ export function Select({ value, onChange, options, placeholder = "Select...", cl
         {({ open }) => (
           <>
             <ListboxButton
+              aria-label={ariaLabel}
               className={cn(
                 "flex h-10 w-full items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm ring-offset-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200 hover:border-slate-300 cursor-pointer",
                 open && "ring-2 ring-blue-600 ring-offset-2 border-blue-600"

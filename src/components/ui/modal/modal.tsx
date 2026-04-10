@@ -4,7 +4,7 @@ import { XIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { ModalProps } from "@/types/ui";
 
-export function Modal({ isOpen, onClose, title, children, className }: ModalProps) {
+export function Modal({ isOpen, onClose, title, children, className, closeAriaLabel = "Close" }: ModalProps) {
   return (
     <Transition show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={onClose}>
@@ -44,7 +44,7 @@ export function Modal({ isOpen, onClose, title, children, className }: ModalProp
                   <button
                     onClick={onClose}
                     className="p-2 -mr-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors cursor-pointer"
-                    aria-label="Close"
+                    aria-label={closeAriaLabel}
                   >
                     <XIcon className="w-5 h-5" />
                   </button>

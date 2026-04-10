@@ -14,11 +14,16 @@ export const header: HeaderMessages = {
   },
   profile: {
     name: "Olcay Senturk",
-    description: "Profil Bilgisi",
+    description: "Yönetici",
     menu: {
       account: "Hesabım",
       preferences: "Tercihler",
       signOut: "Çıkış Yap",
     },
+  },
+  mobileMenu: {
+    title: "Menü",
+    closeAria: "Menüyü kapat",
+    openAria: "Menüyü aç",
   },
 };

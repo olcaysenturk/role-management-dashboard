@@ -1,5 +1,5 @@
 import type { HomeMessages } from "@/types/i18n";
 
 export const home: HomeMessages = {
-  title: "Home"
+  title: "User Management"
 };

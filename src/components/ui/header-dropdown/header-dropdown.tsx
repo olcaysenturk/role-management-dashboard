@@ -30,15 +30,7 @@ export function HeaderDropdown({
             panelClassName
           )}
         >
-          {React.Children.map(children, (child) => (
-            <MenuItem>
-              {({ active }) => (
-                <div className={cn(active && "bg-slate-50 rounded-lg")}>
-                  {child}
-                </div>
-              )}
-            </MenuItem>
-          ))}
+          {children}
         </MenuItems>
       </Transition>
     </Menu>

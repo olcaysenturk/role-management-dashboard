@@ -13,5 +13,6 @@ export { CheckIcon } from "@/components/icons/check-icon";
 export { TriangleAlertIcon } from "@/components/icons/triangle-alert-icon";
 export { ChevronLeftIcon } from "@/components/icons/chevron-left-icon";
 export { ChevronRightIcon } from "@/components/icons/chevron-right-icon";
+export { MenuIcon } from "@/components/icons/menu-icon";
 
 export type { IconProps };

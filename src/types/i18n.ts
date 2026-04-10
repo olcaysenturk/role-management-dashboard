@@ -18,6 +18,11 @@ export type HeaderMessages = {
       signOut: string;
     };
   };
+  mobileMenu: {
+    title: string;
+    closeAria: string;
+    openAria: string;
+  };
 };
 
 export type FooterMessages = {
@@ -27,6 +32,35 @@ export type FooterMessages = {
 
 export type HomeMessages = {
   title: string;
+};
+
+export type AccountMessages = {
+  description: string;
+  fields: {
+    fullName: string;
+    email: string;
+    role: string;
+  };
+};
+
+export type PreferencesMessages = {
+  description: string;
+  language: {
+    title: string;
+    description: string;
+  };
+};
+
+export type SEOTags = {
+  title: string;
+  description: string;
+};
+
+export type SEOMessages = {
+  global: SEOTags & { keywords: string };
+  home: SEOTags;
+  account: SEOTags;
+  preferences: SEOTags;
 };
 
 export type UsersMessages = {
@@ -93,4 +127,7 @@ export type LanguageMessages = {
   footer: FooterMessages;
   home: HomeMessages;
   users: UsersMessages;
+  account: AccountMessages;
+  preferences: PreferencesMessages;
+  seo: SEOMessages;
 };

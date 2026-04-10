@@ -1,4 +1,4 @@
-export { UserTable } from "@/components/users/user-table";
 export { UserFilters } from "@/components/users/user-filters";
-export { UserFormModal } from "@/components/users/user-form-modal";
-export { DeleteConfirmModal } from "@/components/users/delete-confirm-modal";
+export { UserTable } from "@/components/users/user-table";
+export { UserManagement } from "@/components/users/user-management";
+export { UserFormModal, DeleteConfirmModal } from "@/components/users/modals";

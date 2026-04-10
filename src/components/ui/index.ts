@@ -5,3 +5,4 @@ export { Input } from "@/components/ui/input";
 export { Modal } from "@/components/ui/modal";
 export { Select } from "@/components/ui/select";
 export { Pagination } from "@/components/ui/pagination";
+export { PageHeader } from "@/components/ui/page-header";

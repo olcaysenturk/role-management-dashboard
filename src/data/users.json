@@ -1,5 +1,15 @@
 [
   {
+    "id": "1775839350651",
+    "name": "Deniz Turan",
+    "role": "Patient",
+    "permissions": [
+      "view_own_records",
+      "book_appointments",
+      "manage_users"
+    ]
+  },
+  {
     "id": "1775837050804",
     "name": "Olcay Şentürk",
     "role": "Admin",
@@ -7,15 +17,6 @@
       "manage_users",
       "view_reports",
       "manage_settings"
-    ]
-  },
-  {
-    "id": "1712760000001",
-    "name": "Ahmet Erdemir",
-    "role": "Admin",
-    "permissions": [
-      "manage_users",
-      "view_reports"
     ]
   },
   {

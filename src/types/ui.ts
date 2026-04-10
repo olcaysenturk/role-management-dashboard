@@ -18,6 +18,7 @@ export interface ModalProps {
   title: string;
   children: React.ReactNode;
   className?: string;
+  closeAriaLabel?: string;
 }
 
 export interface SelectOption {
@@ -31,6 +32,7 @@ export interface SelectProps {
   options: SelectOption[];
   placeholder?: string;
   className?: string;
+  ariaLabel?: string;
 }
 
 export interface MainSectionProps {
