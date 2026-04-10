@@ -98,15 +98,13 @@ export type UsersMessages = {
   last_name: string;
   permission_labels: {
     manage_users: string;
-    manage_roles: string;
-    manage_settings: string;
     view_reports: string;
+    manage_settings: string;
     view_patients: string;
-    view_medical_records: string;
-    view_own_records: string;
     edit_medical_records: string;
-    create_prescriptions: string;
+    view_own_records: string;
     book_appointments: string;
+    restrict_access: string;
   };
   success_add: string;
   success_update: string;
