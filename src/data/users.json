@@ -1,0 +1,79 @@
+[
+  {
+    "id": "1775837050804",
+    "name": "Olcay Şentürk",
+    "role": "Admin",
+    "permissions": [
+      "manage_users",
+      "view_reports",
+      "manage_settings"
+    ]
+  },
+  {
+    "id": "1712760000001",
+    "name": "Ahmet Erdemir",
+    "role": "Admin",
+    "permissions": [
+      "manage_users",
+      "view_reports"
+    ]
+  },
+  {
+    "id": "1712760000002",
+    "name": "Dr. Selin Akın",
+    "role": "Doctor",
+    "permissions": [
+      "view_patients",
+      "edit_medical_records"
+    ]
+  },
+  {
+    "id": "1712760000003",
+    "name": "Caner Yılmaz",
+    "role": "Patient",
+    "permissions": [
+      "view_own_records"
+    ]
+  },
+  {
+    "id": "1712760000004",
+    "name": "Elif Demir",
+    "role": "Doctor",
+    "permissions": [
+      "view_patients"
+    ]
+  },
+  {
+    "id": "1712760000005",
+    "name": "Murat Özkan",
+    "role": "Admin",
+    "permissions": [
+      "view_reports"
+    ]
+  },
+  {
+    "id": "1712760000006",
+    "name": "Suna Yıldız",
+    "role": "Patient",
+    "permissions": [
+      "view_own_records"
+    ]
+  },
+  {
+    "id": "1712760000007",
+    "name": "Hakan Çelik",
+    "role": "Doctor",
+    "permissions": [
+      "view_patients",
+      "edit_medical_records"
+    ]
+  },
+  {
+    "id": "1712760000008",
+    "name": "Zeynep Kaya",
+    "role": "Patient",
+    "permissions": [
+      "view_own_records"
+    ]
+  }
+]
