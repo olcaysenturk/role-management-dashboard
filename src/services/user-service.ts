@@ -17,7 +17,7 @@ export const UserService = {
     return response.json();
   },
 
-  async updateUser(id: string, updates: { role: Role; permissions: string[] }): Promise<User> {
+  async updateUser(id: string, updates: { name?: string; role: Role; permissions: string[] }): Promise<User> {
     const response = await fetch(`/api/users/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },

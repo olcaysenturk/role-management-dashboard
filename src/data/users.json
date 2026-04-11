@@ -1,22 +1,20 @@
 [
   {
     "id": "1775839350651",
-    "name": "Deniz Turan",
-    "role": "Patient",
+    "name": "Dr. Deniz Turan",
+    "role": "Doctor",
     "permissions": [
-      "view_own_records",
-      "book_appointments",
-      "manage_users"
+      "view_patients",
+      "edit_medical_records"
     ]
   },
   {
     "id": "1775837050804",
-    "name": "Olcay Şentürk",
-    "role": "Admin",
+    "name": "Dr. Olcay Şentürk",
+    "role": "Doctor",
     "permissions": [
-      "manage_users",
-      "view_reports",
-      "manage_settings"
+      "view_patients",
+      "edit_medical_records"
     ]
   },
   {

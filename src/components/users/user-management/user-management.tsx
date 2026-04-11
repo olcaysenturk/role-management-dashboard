@@ -81,7 +81,7 @@ export function UserManagement() {
 
   const handleFormSubmit = (data: { name: string; role: Role; permissions: string[] }) => {
     if (editingUser) {
-      dispatch(updateUser({ id: editingUser.id, role: data.role, permissions: data.permissions }))
+      dispatch(updateUser({ id: editingUser.id, name: data.name, role: data.role, permissions: data.permissions }))
         .unwrap()
         .then(() => {
           toast.success(messages.users.success_update);

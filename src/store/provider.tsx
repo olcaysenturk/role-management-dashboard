@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Provider } from "react-redux";
-import { defaultLocale, localeStorageKey, isValidLocale } from "@/lib/i18n/config";
+import { defaultLocale, localeStorageKey, isValidLocale, type Locale } from "@/lib/i18n/config";
 import { setLocale } from "@/store/language";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { makeStore } from "@/store/index";
@@ -28,14 +28,16 @@ function LanguagePersistence({ onHydrated }: { onHydrated: () => void }) {
   return null;
 }
 
-export function StoreProvider({ children }: { children: React.ReactNode }) {
-  const [store] = useState(makeStore);
+export function StoreProvider({ children, initialLocale }: { children: React.ReactNode; initialLocale?: Locale }) {
+  const [store] = useState(() => 
+    makeStore(initialLocale ? { language: { locale: initialLocale } } : undefined)
+  );
   const [isHydrated, setIsHydrated] = useState(false);
 
   return (
     <Provider store={store}>
       <LanguagePersistence onHydrated={() => setIsHydrated(true)} />
-      {isHydrated ? children : <div className="invisible">{children}</div>}
+      {children}
     </Provider>
   );
 }

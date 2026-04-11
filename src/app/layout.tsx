@@ -55,7 +55,7 @@ export default async function RootLayout({
     >
       <body className="min-h-full bg-slate-50 text-slate-900">
         <Toaster position="bottom-right" richColors expand={true} />
-        <StoreProvider>
+        <StoreProvider initialLocale={locale}>
           <div className="flex min-h-screen flex-col">
             <AppHeader />
             <main className="mx-auto flex w-full max-w-6xl flex-1 px-6 py-10">

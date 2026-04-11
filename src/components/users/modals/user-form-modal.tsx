@@ -30,12 +30,17 @@ export function UserFormModal({ isOpen, onClose, onSubmit, user }: UserFormModal
 
   useEffect(() => {
     if (user && isOpen) {
-      const nameParts = user.name.trim().split(" ");
+      let cleanName = user.name;
+      if (cleanName.startsWith("Dr. ")) {
+        cleanName = cleanName.replace("Dr. ", "");
+      }
+      
+      const nameParts = cleanName.trim().split(" ");
       if (nameParts.length > 1) {
         setLastName(nameParts.pop() || "");
         setFirstName(nameParts.join(" "));
       } else {
-        setFirstName(user.name);
+        setFirstName(cleanName);
         setLastName("");
       }
       setRole(user.role);
@@ -96,7 +101,11 @@ export function UserFormModal({ isOpen, onClose, onSubmit, user }: UserFormModal
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (validate()) {
-      onSubmit({ name: `${firstName.trim()} ${lastName.trim()}`, role, permissions });
+      let finalName = `${firstName.trim()} ${lastName.trim()}`;
+      if (role === "Doctor" && !finalName.startsWith("Dr. ")) {
+        finalName = `Dr. ${finalName}`;
+      }
+      onSubmit({ name: finalName, role, permissions });
     } else {
       const firstError = Object.values(errors)[0] || t.name_required;
       toast.error(firstError);
@@ -125,7 +134,6 @@ export function UserFormModal({ isOpen, onClose, onSubmit, user }: UserFormModal
                   if (errors.firstName) setErrors(prev => ({ ...prev, firstName: "" }));
                 }}
                 placeholder="Ahmet"
-                disabled={isEditMode}
                 error={errors.firstName}
               />
             </div>
@@ -139,7 +147,6 @@ export function UserFormModal({ isOpen, onClose, onSubmit, user }: UserFormModal
                   if (errors.lastName) setErrors(prev => ({ ...prev, lastName: "" }));
                 }}
                 placeholder="Yılmaz"
-                disabled={isEditMode}
                 error={errors.lastName}
               />
             </div>

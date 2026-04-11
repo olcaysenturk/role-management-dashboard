@@ -21,8 +21,8 @@ export const addUser = createAsyncThunk(
 
 export const updateUser = createAsyncThunk(
   "users/updateUser",
-  async ({ id, role, permissions }: { id: string; role: Role; permissions: string[] }) => {
-    return await UserService.updateUser(id, { role, permissions });
+  async ({ id, name, role, permissions }: { id: string; name?: string; role: Role; permissions: string[] }) => {
+    return await UserService.updateUser(id, { name, role, permissions });
   }
 );
 
