@@ -1,0 +1,40 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Hanken Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+body {
+  @apply bg-slate-100 text-slate-900;
+}
+
+.turf-pattern {
+  background-color: #2d5a27;
+  background-image:
+    linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.05) 50%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 80px 100%, 100% 20px;
+}
+
+.lane-border {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes gallop {
+  0%,
+  100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-3px) rotate(2deg); }
+}
+
+.horse-container {
+  animation: gallop 0.4s infinite ease-in-out;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
